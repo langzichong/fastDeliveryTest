@@ -87,8 +87,13 @@ public class Log4jHTMLLayout extends Layout {
                 LogInfo = RenderMsgs[0];
                 imageUrl = "";
             }
-
-            sbuf.append("<td title=\"Message\">");
+            if(LogInfo.contains(": Passed")){
+                sbuf.append("<td title=\"Message\" bgcolor=\"#00FF00\">");
+            }else if(LogInfo.contains(": Failed")){
+                sbuf.append("<td title=\"Message\" bgcolor=\"#FF0000\">");
+            }else{
+                sbuf.append("<td title=\"Message\">");
+            }
             sbuf.append(Transform.escapeTags(LogInfo));
             sbuf.append("</td>" + Layout.LINE_SEP);
 
@@ -99,6 +104,7 @@ public class Log4jHTMLLayout extends Layout {
             sbuf.append("</td>" + Layout.LINE_SEP);
 
             sbuf.append("</tr>" + Layout.LINE_SEP);
+
 
             if (event.getNDC() != null) {
                 sbuf.append("<tr><td bgcolor=\"#EEEEEE\" style=\"font-size : 12px;\" colspan=\"6\" title=\"Nested Diagnostic Context\">");
@@ -112,6 +118,13 @@ public class Log4jHTMLLayout extends Layout {
                 appendThrowableAsHTML(s, sbuf);
                 sbuf.append("</td></tr>" + Layout.LINE_SEP);
             }
+//            if(LogInfo.contains("Test Failed")){
+//                sbuf.append("<p><strong><font color=\"red\">Test Failed</font></strong></p>"+Layout.LINE_SEP);
+//                sbuf.append("<hr />"+Layout.LINE_SEP);
+//            }else if(LogInfo.contains("Test Passed")){
+//                sbuf.append("<p><strong><font color=\"green\">Test Passed</font></strong></p>"+Layout.LINE_SEP);
+//                sbuf.append("<hr />"+Layout.LINE_SEP);
+//            }
         }
 
         return sbuf.toString();

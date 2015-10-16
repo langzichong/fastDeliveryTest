@@ -14,9 +14,6 @@
             <id>dins-public</id>
             <name>Dins Corporate Repository</name>
             <url>http://nexus.dins.ru:8888/nexus/content/groups/public</url>
-            <snapshots>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
         </repository>
     </repositories>
 
