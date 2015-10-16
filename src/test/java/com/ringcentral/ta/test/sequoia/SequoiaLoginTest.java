@@ -30,16 +30,17 @@ public class SequoiaLoginTest extends SequoiaTest{
 //        mobile.getSequoiaLoginPage().setPassword("Test!123");
         mobile.getSequoiaLoginPage().clickLogin();
         assertTrue(mobile.getSequoiaMainPage().isSequoiaMainPageDisplayed(), "Check is SequoiaMainPageDisplayed");
-        assertEqual(mobile.getSequoiaMainPage().getMessageboxCount(),2,"verify Messagebox count");
+        assertEqual(mobile.getSequoiaMainPage().getMessageboxCount(),3,"verify Messagebox count");
     }
-//    @Test
+    @Test
     public void test_CheckFirstMessageHistory() throws InterruptedException {
         logBusiness( 1, "enter correct phone number and password");
-        mobile.getSequoiaLoginPage().clickLogin();
+//        mobile.getSequoiaLoginPage().clickLogin();
         logBusiness( 1, "Select first Login page");
 //        mobile.getMobileDevice().getAppiumDriver().findElementById("edtPhoneNumber").sendKeys("16507419631");
 //        mobile.getMobileDevice().getAppiumDriver().findElementById("btnLogin2").click();
 
     }
+
 
 }
